@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="An original fictional concept preview of Portfolio in WordPress and standalone forms.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Portfolio — one story, two forms</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-mode="wordpress">
+  <a class="skip-link" href="#main">Skip to the projects</a>
+  <div class="preview-bar">
+    <div class="preview-label"><span class="status-dot" aria-hidden="true"></span> Concept preview <span class="preview-note">/ fictional content</span></div>
+    <div class="mode-switch" role="group" aria-label="Choose a presentation form">
+      <button type="button" data-mode-button="wordpress" aria-pressed="true">WordPress</button>
+      <button type="button" data-mode-button="standalone" aria-pressed="false">Standalone</button>
+    </div>
+  </div>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Portfolio preview home"><span class="brand-mark" aria-hidden="true">p</span> Portfolio<span class="brand-suffix"> / studio</span></a>
+      <nav aria-label="Preview navigation"><a href="#main" aria-current="page">Work</a><a href="../docs/concept.md">The concept <span aria-hidden="true">↗</span></a></nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Selected work. The full picture.</p>
+          <h1 id="hero-title">Work, with the<br><span>story behind it.</span></h1>
+          <p class="hero-summary" id="portfolio-summary">Explore the problem, the system, and the things built along the way.</p>
+          <div class="hero-links"><a class="button primary" href="#projects">Explore the work <span aria-hidden="true">↓</span></a><span class="quiet">One content model. Two ways to publish.</span></div>
+        </div>
+        <aside class="story-card" aria-label="The case-study structure">
+          <div class="story-card-top"><span class="small-label">Inside every good case study</span><span aria-hidden="true">↗</span></div>
+          <ol><li><span>01</span> The problem worth solving</li><li><span>02</span> The system behind the solution</li><li><span>03</span> What actually got built</li><li><span>04</span> The evidence and outcome</li></ol>
+          <p>More than a finished screenshot.</p>
+        </aside>
+      </section>
+      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading"><div><p class="eyebrow">The portfolio</p><h2 id="projects-title">Projects with substance.</h2></div><p class="quiet" id="form-explanation">A Work section inside an existing WordPress website.</p></div>
+        <div class="filter-bar">
+          <label>System<select id="system-filter"><option value="">All systems</option></select></label>
+          <label>Technology<select id="technology-filter"><option value="">All technologies</option></select></label>
+          <p id="result-count" role="status" aria-live="polite"></p>
+        </div>
+        <div class="project-grid" id="project-grid"></div>
+        <noscript><p>This concept preview needs JavaScript to display its bundled examples. The planned products will render readable project pages without JavaScript. Read the <a href="../docs/concept.md">product concept</a> for details.</p></noscript>
+      </section>
+      <section class="format-note" aria-label="Product status"><div><p class="eyebrow">Same story, different home</p><h2>Your content should travel with you.</h2></div><p>The WordPress and standalone products will share one portable project format. This preview demonstrates the presentation only; both publishing tools are planned.</p><a class="text-link" href="../docs/roadmap.md">Read the development plan <span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer><span>Portfolio <span class="quiet">/ concept 0.1</span></span><p>Original fictional examples. No client data, tracking, or live integrations.</p><a href="../docs/business/licensing.md">Licensing</a></footer>
+  </div>
+  <dialog id="project-dialog" aria-labelledby="detail-title">
+    <div class="dialog-tools"><span class="small-label">Fictional case study</span><div><button class="button subtle" type="button" id="print-project">Print this view</button><button class="button subtle" type="button" id="close-project" autofocus>Close <span aria-hidden="true">×</span></button></div></div>
+    <article id="project-detail"></article>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "0.1.0",
+  "title": "Work, with the story behind it.",
+  "summary": "A fictional portfolio showing the problem, the system, and the evidence. Every project and outcome below is illustrative.",
+  "locale": "en",
+  "projects": [
+    {
+      "id": "sample-intake",
+      "slug": "service-request-intake",
+      "title": "One clear path from request to delivery",
+      "summary": "An illustrative intake workflow that connects requests, review, and delivery without losing the context.",
+      "status": "prototype",
+      "featured": true,
+      "client": { "displayName": "Illustrative engagement" },
+      "systems": [{ "id": "workflow", "label": "Workflow automation" }],
+      "technologies": [{ "id": "wordpress", "label": "WordPress" }, { "id": "rest-api", "label": "REST API" }],
+      "sections": {
+        "overview": { "title": "The work in context", "body": "This fictional engagement illustrates a request process for a small service team. The example covers intake, review, and handover. It describes a concept, not a deployed customer system.", "evidenceIds": ["workflow-map"] },
+        "challenge": { "title": "The challenge", "body": "In this scenario, requests arrive in different formats and reviewers have to reconstruct missing information. Delivery teams receive a task without the original decision context.", "evidenceIds": [] },
+        "solution": { "title": "A system people can follow", "body": "A structured intake captures the request, a review step makes the decision visible, and the approved brief travels into delivery. The architecture map explains those boundaries.", "evidenceIds": ["workflow-map"] },
+        "outcomes": { "title": "What the design is intended to change", "body": "The intended outcome is a consistent handover and a visible decision trail. No production impact has been measured. The figures below demonstrate how a case study could present an illustrative result.", "evidenceIds": [] }
+      },
+      "implementations": [
+        { "id": "intake", "title": "Structured request intake", "summary": "Capture the information a reviewer actually needs.", "details": "The fictional form groups the request, context, constraints, and desired outcome. In a working product, input validation and permissions would be tested separately.", "status": "prototype", "technologyIds": ["wordpress"], "evidenceIds": ["workflow-map"] },
+        { "id": "handover", "title": "A connected delivery brief", "summary": "Keep the decision and original request with the work.", "details": "The proposed handover carries the approved brief and review decision forward. The example has no live integration or external account.", "status": "prototype", "technologyIds": ["rest-api"], "evidenceIds": [] }
+      ],
+      "architecture": {
+        "nodes": [{ "id": "request", "label": "Request", "kind": "source" }, { "id": "review", "label": "Review", "kind": "process" }, { "id": "brief", "label": "Approved brief", "kind": "storage" }, { "id": "delivery", "label": "Delivery", "kind": "output" }],
+        "edges": [{ "from": "request", "to": "review", "label": "Submit context" }, { "from": "review", "to": "brief", "label": "Record decision" }, { "from": "brief", "to": "delivery", "label": "Carry the context" }]
+      },
+      "results": [{ "id": "handover-path", "label": "Handover paths", "value": "3 → 1", "context": "Illustrative scenario only; no customer measurement or product performance claim.", "provenance": "illustrative", "evidenceIds": [] }],
+      "evidence": [{ "id": "workflow-map", "type": "image", "title": "Illustrative workflow map", "src": "media/workflow.svg", "alt": "A request moves through review into an approved brief and then delivery.", "caption": "Original fictional diagram. It contains no customer system or private data." }]
+    },
+    {
+      "id": "sample-reporting",
+      "slug": "delivery-reporting",
+      "title": "Make delivery status understandable",
+      "summary": "A fictional reporting project that brings progress, exceptions, and ownership into one readable view.",
+      "status": "prototype",
+      "featured": false,
+      "systems": [{ "id": "reporting", "label": "Reporting" }],
+      "technologies": [{ "id": "json", "label": "JSON" }, { "id": "html", "label": "HTML" }],
+      "sections": {
+        "overview": { "title": "A reporting concept", "body": "This example shows how a reporting engagement could be described without publishing internal dashboards. All content is fictional.", "evidenceIds": [] },
+        "challenge": { "title": "The challenge", "body": "A project update can contain lots of numbers while leaving the next action unclear. This scenario focuses on turning status into a useful operational conversation.", "evidenceIds": [] },
+        "solution": { "title": "Progress with context", "body": "The proposed view groups current work, exceptions, and ownership. Each part points toward an action rather than presenting a decorative metric.", "evidenceIds": [] },
+        "outcomes": { "title": "A clearer review", "body": "The intended result is a more understandable review. This example makes no claim about time saved or financial impact.", "evidenceIds": [] }
+      },
+      "implementations": [{ "id": "status-view", "title": "A structured status view", "summary": "Show progress, exceptions, and ownership together.", "details": "The conceptual data format separates the status itself from the explanation and next action. A real engagement would attach approved evidence and describe its measurement basis.", "status": "prototype", "technologyIds": ["json", "html"], "evidenceIds": [] }],
+      "architecture": { "nodes": [], "edges": [] },
+      "results": [],
+      "evidence": []
+    },
+    {
+      "id": "sample-knowledge",
+      "slug": "knowledge-hub",
+      "title": "A home for the answers people need",
+      "summary": "An illustrative knowledge hub organized around decisions and tasks, with clear ownership for each answer.",
+      "status": "prototype",
+      "featured": false,
+      "systems": [{ "id": "knowledge", "label": "Knowledge systems" }],
+      "technologies": [{ "id": "wordpress", "label": "WordPress" }],
+      "sections": {
+        "overview": { "title": "A knowledge system", "body": "This fictional example explores how a service team might organize recurring answers. It is designed to demonstrate a qualitative case study without invented metrics.", "evidenceIds": [] },
+        "challenge": { "title": "The challenge", "body": "Information can be technically available but difficult to find. The scenario starts with an unfamiliar team member trying to complete a task.", "evidenceIds": [] },
+        "solution": { "title": "Organize around the task", "body": "The proposed hub has a small number of task paths, short answers, an owner, and a review process. Readers can understand the structure before opening a long document.", "evidenceIds": [] },
+        "outcomes": { "title": "What to validate", "body": "A real pilot would measure whether people find an accurate answer and can complete the task. No user testing has been performed for this fictional engagement.", "evidenceIds": [] }
+      },
+      "implementations": [{ "id": "task-navigation", "title": "Task-based navigation", "summary": "Start with the question a person is trying to answer.", "details": "The proposed navigation groups answers around tasks. Ownership and review dates would be authoring concerns; only approved answers would be published.", "status": "prototype", "technologyIds": ["wordpress"], "evidenceIds": [] }],
+      "architecture": { "nodes": [], "edges": [] },
+      "results": [],
+      "evidence": []
+    }
+  ]
+}
