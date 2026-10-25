@@ -1,57 +1,60 @@
 # Portfolio
 
-**Show what you built, how it works, and why it matters.**
+Show your work. Explain what you built, how it works, and why it matters.
 
-Portfolio helps consultants, agencies, and developers turn their work into clear case studies, with project galleries, screenshots, implementation details, and results.
+Free, public project galleries and case studies. No account, activation key, email signup, or paid service required.
 
-**[Download the free preview — ZIP](https://github.com/evrimaslan85/portfolio/archive/refs/heads/main.zip)** · [See the preview](docs/images/portfolio-preview.png) · [Read the product plan](docs/concept.md)
+## Download
 
-**Available today: a working browser preview and the product plans. The installable WordPress plugin and standalone publishing tool are planned; there is no plugin ZIP yet.**
+**Version 0.2.0 · Early release**
 
-![Portfolio preview showing project cards and the story behind each project](docs/images/portfolio-preview.png)
-
-## Try the preview
-
-1. **[Download the ZIP](https://github.com/evrimaslan85/portfolio/archive/refs/heads/main.zip)** and unzip it.
-2. Open the `prototype` folder inside the downloaded folder.
-3. Double-click `index.html` to open it in your browser.
-
-Switch between **WordPress** and **Standalone** at the top. Try the filters, open a case study, expand its details, or print it.
-
-No account, email address, installation, or coding is needed. The ZIP includes the preview, fictional examples, and planning documents. It is **not** a plugin to upload to WordPress.
-
-## Two ways to use Portfolio
-
-| Planned version | Who it is for | What you will do |
+| Your website | Download ZIP | How it works |
 | --- | --- | --- |
-| **WordPress plugin** | You already have a WordPress website. | Install the plugin, add projects in your dashboard, and publish your Work section. |
-| **Standalone website** | You want a portfolio without WordPress. | Create your project stories and publish an independent portfolio website. |
+| WordPress | [WordPress plugin](https://github.com/evrimaslan85/portfolio/releases/download/v0.2.0/portfolio-wordpress-0.2.0.zip) | Install in your dashboard. Add and publish projects. |
+| cPanel / ordinary web hosting | [Complete website](https://github.com/evrimaslan85/portfolio/releases/download/v0.2.0/portfolio-cpanel-0.2.0.zip) | Edit locally with the included visual editor, then upload. |
+| Webflow | [Webflow embed kit](https://github.com/evrimaslan85/portfolio/releases/download/v0.2.0/portfolio-webflow-embed-0.2.0.zip) | Host the included portfolio, then use Code Embed. |
+| Wix | [Wix embed kit](https://github.com/evrimaslan85/portfolio/releases/download/v0.2.0/portfolio-wix-embed-0.2.0.zip) | Host the included portfolio, then use Embed a Site. |
+| Squarespace | [Squarespace embed kit](https://github.com/evrimaslan85/portfolio/releases/download/v0.2.0/portfolio-squarespace-embed-0.2.0.zip) | Host the included portfolio, then use an eligible Code block. |
+| Another website | [HTML embed kit](https://github.com/evrimaslan85/portfolio/releases/download/v0.2.0/portfolio-html-embed-0.2.0.zip) | Works where external iframes are permitted. |
 
-Both versions will use the same project format so your content can move with you. The preview demonstrates their appearance; the publishing products are planned. [See the development roadmap](docs/roadmap.md).
+[All downloads and release notes](https://github.com/evrimaslan85/portfolio/releases/tag/v0.2.0) · [Installation help](docs/downloads.md)
 
-## Is it free?
+The builder kits are **hosted embeds, not native Webflow/Wix/Squarespace apps or CMS imports**. Each includes the complete website, editor, embed-code generator, and platform instructions. You need HTTPS hosting; some builders require a paid plan for custom code. Hosting is not included.
 
-Yes. The preview and source are public and free to download. The planned basic products will also be free. Optional setup help, support, or additional services may be offered separately.
+## WordPress: three steps
 
-Downloads and basic use will not require a newsletter subscription. If we offer email updates, joining will be your choice.
+1. Download the **WordPress plugin ZIP** above. Keep it zipped.
+2. In WordPress, open **Plugins → Add New → Upload Plugin**, choose the ZIP, install, and activate.
+3. Open **Portfolio → Setup / Import / Export**, create your Work page, then add and publish projects.
 
-## How do I hear about updates?
+Or add `[portfolio]` to an existing page. Requires **WordPress 6.4+ and PHP 8.1+**. Back up and test on staging before adding it to an established website. It does not replace an existing MU-plugin implementation.
 
-For now, you can use GitHub's **Watch → Custom → Releases** setting to follow future releases. That uses your GitHub notification preferences and does not add you to our email list.
+## cPanel: three steps
 
-An optional email signup is planned, but **there is no connected signup form and this preview collects no email addresses**. [Read the download and signup plan](docs/business/downloads-and-signup.md).
+1. Download and unzip the complete website. Open **editor.html** in a current desktop browser.
+2. Edit your projects and click **Download content.js**. Replace the supplied file with that download.
+3. Upload the site and approved images into a **new folder**, such as `public_html/portfolio`.
 
-## What does the license mean?
+No WordPress, database, Node.js, or build command needed. Editing happens locally; there is no server login or automatic save. Read the included **INSTALL.md**.
 
-It tells you what you are allowed to do with the files. The current preview and documents use the **MIT license**: you can use, change, share, and sell copies while keeping the required copyright/license notice. Your own case-study content stays yours.
+## What you get
 
-The planned WordPress plugin will use WordPress-compatible **GPL-2.0-or-later** licensing. [Licensing explained in plain language](docs/business/licensing.md).
+Project cards and filters; overview, challenge, solution, and outcomes; expandable implementation details; evidence images and links; a simple architecture map/list; responsive and print styles; JSON import/export.
 
-## Want the details?
+All included examples and results are fictional. Replace them with material you have permission to publish.
 
-- [Product plans, design, and developer documentation](docs/index.md)
-- [How downloads, optional signup, and releases will work](docs/business/downloads-and-signup.md)
-- [Ask a question or suggest an improvement](https://github.com/evrimaslan85/portfolio/issues)
-- [Contribute](CONTRIBUTING.md)
+This is an early release, not universal theme/builder certification. The standalone site requires JavaScript. WordPress cards and stories remain readable without it. [Tests and known gaps](docs/verification.md).
 
-**Current stage: concept and browser preview.** All sample projects and results are fictional. No production WordPress plugin or website publisher has been released yet.
+## Free means free
+
+Use it for personal or commercial projects. No forced branding or email collection.
+
+The WordPress plugin uses **GPL-2.0-or-later**. The independent website, embed kits, shared contract, and docs use **MIT**. These licenses let people use, change, and share the software under their notice/source terms. Your project content stays yours. [License guide](docs/business/licensing.md).
+
+For updates, use GitHub **Watch → Custom → Releases**. An optional mailing list may come later; no signup is connected now.
+
+## More
+
+[Help / issues](https://github.com/evrimaslan85/portfolio/issues) · [Documentation](docs/index.md) · [Architecture](docs/architecture/system.md) · [Contribute](CONTRIBUTING.md)
+
+For developers: Node.js 22+, `npm test`, then `npm run build`. ZIPs go into `dist/`. GitHub's repository “Download ZIP” is the source repository, **not** the installable plugin.

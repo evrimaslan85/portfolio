@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative request workflow</title>
+  <desc id="desc">A request moves through review into an approved brief and then delivery. This is a fictional diagram.</desc>
+  <rect width="960" height="260" rx="24" fill="#f3f5f0"/>
+  <g fill="#fff" stroke="#bdc9b7" stroke-width="2">
+    <rect x="40" y="80" width="180" height="90" rx="16"/>
+    <rect x="275" y="80" width="180" height="90" rx="16"/>
+    <rect x="510" y="80" width="180" height="90" rx="16"/>
+    <rect x="745" y="80" width="180" height="90" rx="16"/>
+  </g>
+  <g stroke="#557b42" stroke-width="3" fill="none">
+    <path d="M225 125h40m-10-8 10 8-10 8"/>
+    <path d="M460 125h40m-10-8 10 8-10 8"/>
+    <path d="M695 125h40m-10-8 10 8-10 8"/>
+  </g>
+  <g fill="#24351c" font-family="system-ui, sans-serif" font-size="20" text-anchor="middle">
+    <text x="130" y="132">Request</text><text x="365" y="132">Review</text>
+    <text x="600" y="132">Approved brief</text><text x="835" y="132">Delivery</text>
+  </g>
+  <text x="40" y="224" fill="#576153" font-family="system-ui, sans-serif" font-size="15">FICTIONAL EXAMPLE · No customer data or live integration</text>
+</svg>

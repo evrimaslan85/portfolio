@@ -1,23 +1,26 @@
 # Security and privacy
 
-Current scope: original concept documents, fictional fixtures, and a local browser preview. There is no production account service or WordPress runtime here yet.
+Scope: WordPress plugin, independent website/editor, hosted-iframe kits, version 0.2.0.
 
-## Reporting
+Report privately using GitHub private vulnerability reporting if enabled, otherwise ask for a private channel in a minimal issue. Do not publish credentials, exploit details, private URLs, or client records. No response SLA is offered.
 
-Use GitHub private vulnerability reporting if it is available for this repository. Otherwise open a minimal issue asking for a private reporting channel, without exploit details, credentials, client content, or private URLs. No response-time guarantee is currently offered.
+## Controls
 
-## Publication rules
+- Story save: target-post edit capability plus nonce. Admin setup/import/export: manage_options plus nonce.
+- Plugin public queries: published and non-password-protected only; explicit projection, not arbitrary meta. No public mutating endpoint.
+- Upload: 2 MB JSON limit, full validation before writes, draft-only import, known-ID skip. DB failures can leave partial drafts.
+- PHP/browser output escapes text/attributes. Contract rejects unknown fields, broken references, unsafe URLs, credentials, and traversal paths.
+- Editor persists only through explicit downloads. No accounts, server save, default telemetry/email collection, provider secrets, remote fonts, or arbitrary fetching.
+- Packages use explicit sources, reject symlinks/unsafe entries, and include original fictional media.
 
-Schema validity is not permission to publish. Review client permissions, screenshots, captions, URLs, contextual identification, and claim provenance. Never commit client documents, credentials, raw exports, private case studies, signed-access links, or production provider data. Renaming a client does not anonymize their underlying evidence.
+## Publication limits
 
-## Required implementation controls
+Validation is not permission to publish. Review rights, screenshots, captions, URLs, contextual identification, and outcome claims. Never publish private exports, client documents, secrets, signed-access URLs, or production backups.
 
-- Server-side publication filtering and explicit public fields before output/export.
-- Capability checks for writes and private exports; nonces supplement authentication rather than replace it.
-- Escaped output and no executable imported HTML in the initial contract.
-- Bounded payload/media sizes; safe paths, archive extraction, and symlink handling.
-- Local assets and no default telemetry or arbitrary remote fetches.
-- Cache invalidation on unpublish and documented limitations of public uploads/CDNs.
-- Honest provenance for illustrative, reported, and measured outcomes.
+WordPress Media Library and uploaded static files are public URLs, not confidential storage. Unpublishing does not erase old files or CDN/search/browser copies. Host cache invalidation is outside the plugin.
 
-The preview uses only its bundled fictional public data and performs no network requests. It does not implement an importer or confidentiality workflow. Future runtime packages need their own threat review and tests before release.
+Authored external images/links can contact their hosts; default samples are local. Image/SVG sanitization is not supplied; use trusted media and WordPress upload restrictions. This is not a protected client portal.
+
+Uploading editor.html makes it public, but grants no server-write capability. All content.js data is public even if not immediately visible as a card.
+
+[Tests and known gaps](docs/verification.md). No independent audit/universal security assurance is claimed.

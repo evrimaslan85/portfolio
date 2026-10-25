@@ -1,0 +1,86 @@
+name: Test and publish downloadable packages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/**'
+      - 'release.json'
+      - 'RELEASE_NOTES.md'
+      - 'scripts/build-release.mjs'
+      - 'tests/**'
+      - '.github/workflows/release.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: disposable-ci-only
+          MYSQL_DATABASE: portfolio_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -pdisposable-ci-only"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mysqli, mbstring
+          coverage: none
+      - name: Validate source, contracts, and packages
+        run: npm test
+      - name: Lint PHP
+        run: find packages/wordpress-plugin tests -type f -name '*.php' -print0 | xargs -0 -n 1 php -l
+      - name: Build six ZIP downloads
+        run: node scripts/build-release.mjs
+      - name: Test the downloaded website, editor, and iframe
+        run: |
+          npm install --no-save --package-lock=false playwright@1.57.0
+          npx playwright install --with-deps chromium
+          node tests/browser-smoke.cjs
+      - name: Install WordPress and the exact plugin ZIP
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --output "$RUNNER_TEMP/wp-cli.phar"
+          php "$RUNNER_TEMP/wp-cli.phar" core download --path="$RUNNER_TEMP/portfolio-wp"
+          php "$RUNNER_TEMP/wp-cli.phar" config create --path="$RUNNER_TEMP/portfolio-wp" --dbname=portfolio_test --dbuser=root --dbpass=disposable-ci-only --dbhost=127.0.0.1:3306 --skip-check
+          php "$RUNNER_TEMP/wp-cli.phar" core install --path="$RUNNER_TEMP/portfolio-wp" --url=http://127.0.0.1:8080 --title='Disposable Portfolio Test' --admin_user=portfolio-admin --admin_password=disposable-ci-only --admin_email=admin@example.invalid --skip-email
+          version=$(node -p 'require("./release.json").version')
+          php "$RUNNER_TEMP/wp-cli.phar" plugin install "$GITHUB_WORKSPACE/dist/portfolio-wordpress-$version.zip" --activate --path="$RUNNER_TEMP/portfolio-wp"
+      - name: Exercise WordPress publication and permission paths
+        shell: bash
+        run: |
+          php "$RUNNER_TEMP/wp-cli.phar" eval-file "$GITHUB_WORKSPACE/tests/wordpress-integration.php" --path="$RUNNER_TEMP/portfolio-wp"
+          node -e 'const fs=require("node:fs"),c=require("./packages/shared/contract.js");c.validate(JSON.parse(fs.readFileSync("/tmp/portfolio-wordpress-test.json","utf8")));console.log("WordPress export passes the standalone contract.")'
+          php -S 127.0.0.1:8080 -t "$RUNNER_TEMP/portfolio-wp" > "$RUNNER_TEMP/portfolio-http.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in 1 2 3 4 5; do
+            if curl --fail --silent http://127.0.0.1:8080/?pagename=work --output "$RUNNER_TEMP/portfolio-page.html"; then break; fi
+            sleep 1
+          done
+          node -e 'const fs=require("node:fs"),p=fs.readFileSync(process.argv[1],"utf8");if(!p.includes("data-cpf-gallery")||p.includes("DO-NOT-PUBLISH"))process.exit(1);console.log("WordPress HTTP gallery passed.")' "$RUNNER_TEMP/portfolio-page.html"
+      - name: Publish versioned downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          version=$(node -p 'require("./release.json").version')
+          gh release create "v$version" dist/*.zip dist/SHA256SUMS.txt dist/manifest.json --target "$GITHUB_SHA" --title "Portfolio $version — WordPress, cPanel and embeds" --notes-file RELEASE_NOTES.md --prerelease

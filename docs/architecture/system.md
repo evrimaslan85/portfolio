@@ -1,55 +1,44 @@
-# Architecture
+# Architecture and data flows
 
-Status: proposed architecture. Only the schema, examples, repository validator, and browser preview are implemented.
-
-```mermaid
-flowchart TD
-    W[WordPress editor and private draft state] --> P[WordPress publication adapter]
-    F[Standalone authoring files and private notes] --> S[Standalone publication adapter]
-    P --> R[Public allowlist and evidence approval]
-    S --> R
-    R --> J[Versioned public portfolio JSON]
-    J --> WP[WordPress templates and blocks]
-    J --> ST[Static HTML publisher]
-    WP --> V[Public listing and case-study views]
-    ST --> V
-```
-
-The adapters and renderers are separate PHP/JavaScript implementations. The diagram shares a contract and publication rules, not a deployed service. No request needs to pass through a vendor account.
+Version 0.2.0 is implemented under [packages](../../packages). Independent PHP and browser renderers share the [public JSON contract](../../schemas/portfolio.schema.json), not a central service.
 
 ## Components
 
-1. **Authoring adapter:** native WordPress persistence or local source files; draft/approval controls live here.
-2. **Public projection:** explicit field allowlist, publication filtering, evidence approval, reference validation, and a version marker.
-3. **Renderer:** plugin templates/blocks or static output; semantic and escaped output; presentation never decides confidentiality.
-4. **Appearance configuration:** labels, colors, width, navigation, CTA, base path, and metadata. Avoid inserting site-specific configuration into portable project content.
-5. **Distribution:** a plugin ZIP or static site directory, each with appropriate notices and support metadata.
+| Source | Responsibility |
+| --- | --- |
+| packages/wordpress-plugin/portfolio-case-studies.php | WordPress persistence, story validation, setup, import/export, public query, PHP rendering, REST |
+| packages/wordpress-plugin/assets/admin.js and admin.css | Repeatable fields and Media Library selection; server validates all saves |
+| packages/wordpress-plugin/assets/frontend.js | Current-page filters |
+| packages/shared/schema.js and contract.js | Schema/reference/safe-source validation, defaults |
+| packages/shared/portfolio.js and portfolio.css | Escaped views, filters/dialogs, print/mobile styles |
+| packages/site/editor.html and editor.js | In-memory authoring, validated import, explicit file downloads |
+| packages/site/index.html, site.js, site.css | Standalone shell, content.js loading, renderer mount |
+| packages/embed | HTTPS iframe generator and platform instructions |
+| scripts/build-release.mjs | Allowlisted ZIP assembly, manifest, checksums |
+| tests and .github/workflows/release.yml | Source/package/browser/WordPress gates before publication |
 
-## WordPress persistence proposal
+## WordPress flow
 
-Projects use posts; classifications use taxonomies; structured fields use registered post meta. Revisions should include the fields the editor promises to recover. Settings belong in the Settings API. Do not add custom tables without a demonstrated query/volume need.
+Authenticated editor → nonce + target-post capability → sanitized story → contract validation → _cportfolio_data. Invalid story keeps prior story and displays a notice; WordPress native title/Excerpt can still save independently.
 
-The original site has a `portfolio_project` post type and `portfolio_*` meta. Clean installations should use a final unique namespace chosen after naming review. A tested legacy mode or migration adapter can adopt the existing identifiers. Do not rename existing posts or attach another registration silently. See [migration](../migration.md).
+Public query → published non-password-protected posts → explicit project fields → shortcode/single case study or read-only JSON. Arbitrary meta is not exported. The active theme supplies outer layout; core REST retains WordPress's permission model.
 
-## API proposal
+Admin import → full validation → sanitize/revalidate → skip portable IDs → draft posts → classification-ID mapping → structured fields. A DB error can leave partial drafts; media is not fetched. Admin public export refuses collections above 1,000.
 
-- Public reads: approved published projection only, bounded pagination, sanitized filters, safe error messages.
-- Authoring writes: authenticated users with the target post capability, nonce checking for cookie sessions, validated payloads, escaped rendering.
-- Import/export: privileged actions with limits, dry-run preview, collision policy, and a record of changes.
-- No public routes that mutate business/provider systems are part of this concept.
+Persistence: posts, two taxonomies, structured-story and portable-ID meta, one Settings API option. No custom tables, scheduled jobs, provider secrets, central account, or plugin response cache. Host/page-cache/CDN invalidation remains outside the plugin.
 
-The exact route namespace is not reserved. Avoid publishing examples that look like implemented live endpoints.
+## Standalone flow
 
-## Caching and invalidation
+content.js → schema/reference validation → escaped DOM. Editor changes memory → explicit file download → user replaces content.js → upload to host. No server writes, localStorage autosave, authentication, or API.
 
-Invalidate project/listing projections when a project, its classifications, evidence approval, or relevant settings change. Unpublishing must evict cached public responses. Asset URLs already distributed can remain reachable; WordPress uploads and CDN caches need their own deletion/expiry process. Cache keys include locale, filters, permissions where applicable, and schema/render version. Never use a shared public cache for an authenticated draft preview.
+All uploaded files and content are public. Author-chosen external images/links may contact their hosts. Defaults are local. Supported data cannot inject executable HTML, credentialed URLs, unsafe schemes, or traversal paths.
 
-Static publishing should create a new build directory, validate it, then atomically promote it where supported. Deployment must remove obsolete routes/assets deliberately; merely uploading new files leaves old private material accessible.
+## Builder flow
 
-## Runtime independence
+Local editing → downloaded content.js → HTTPS-hosted site → iframe in builder. No SDK, native CMS, or automatic sync. Frame height, builder code permissions, and hosting frame headers are external requirements.
 
-Basic authoring and rendering require no Supabase, CRM, automation account, remote fonts, or telemetry. A service integration is an optional separately reviewed feature with clear permissions, ownership, and failure behavior. Never import the original Lab loader or integrations into the public Work product by default.
+## Isolation
 
-## Repository growth
+WordPress ZIP includes only plugin code plus MIT shared CSS/schema/fictional examples and notices. Other ZIPs use independent MIT website/embed code. Builder rejects symlinks and unsafe entry paths.
 
-The current repository is a concept package. When implementation begins, add separate package directories for the WordPress plugin and standalone publisher, independent release workflows, explicit dependency licenses, and shared fixtures. A monorepo is useful if the contract stays synchronized; it should not force both runtimes to ship in the same release archive.
+Interactive Lab, MU loader, private archived source, CRM/automation integrations, client data, credentials, and production backups are excluded. cportfolio_project avoids silently taking over legacy portfolio_project. [Migration](../migration.md) remains a separate reviewed operation.

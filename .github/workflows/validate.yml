@@ -1,4 +1,4 @@
-name: Validate concept package
+name: Validate source and packages
 
 on:
   push:

@@ -101,7 +101,7 @@ export function validateRelationships(data) {
 async function filesIn(directory) {
   const output = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
-    if (['.git', 'node_modules'].includes(entry.name)) continue;
+    if (['.git', 'node_modules', 'dist'].includes(entry.name)) continue;
     const target = path.join(directory, entry.name);
     if (entry.isDirectory()) output.push(...await filesIn(target));
     else if (entry.isFile()) output.push(target);

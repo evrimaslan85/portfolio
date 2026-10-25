@@ -1,6 +1,6 @@
 # Scope and roadmap
 
-Milestones are ordered by dependency. Dates and effort estimates are intentionally unset until implementation ownership and capacity are agreed.
+The 0.2.0 early release ships an installable WordPress plugin, a cPanel/static website with local visual editor, and four hosted-embed kits. See the [current product pages](index.md) for observed behavior. The target matrix and milestones below retain earlier planning, including features not yet implemented; they are not a release checklist marked complete.
 
 ## What is complete in this repository
 
@@ -8,6 +8,7 @@ Milestones are ordered by dependency. Dates and effort estimates are intentional
 - Shared public schema and original fictional fixtures.
 - Browser preview with both presentation forms, filtering, detail, and print styling.
 - Licensing policy, migration plan, release rules, and repository validation.
+- Six purpose-built downloadable ZIPs, shared browser renderer/validator, local visual editing and explicit file save, WordPress persistence/shortcode/REST/import-export, platform instructions, package/browser/WordPress release gates.
 
 ## Feature scope
 

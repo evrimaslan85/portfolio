@@ -1,6 +1,6 @@
 # Contributing
 
-Start with the [concept](docs/concept.md), [roadmap](docs/roadmap.md), [decisions](docs/decisions.md), and [license scope](docs/business/licensing.md). This repository is currently a specification and preview; label proposals and implemented behavior accurately.
+Start with the [current product documentation](docs/index.md), [roadmap](docs/roadmap.md), [decisions](docs/decisions.md), and [license scope](docs/business/licensing.md). This repository ships early-release packages alongside future plans; label implemented behavior and proposals accurately.
 
 Keep a change focused. Update relevant documentation and fictional fixtures with contract/behavior changes. Run `npm test` on Node.js 22+. For UI changes, open the preview, check keyboard/mobile behavior, and confirm both forms still show the same content.
 

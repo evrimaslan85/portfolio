@@ -25,4 +25,4 @@
 - Which support/setup offer, if any, has demonstrated paid demand.
 - Which private list/backend, sender identity, and privacy notice will support an optional confirmed email signup; no service is connected yet.
 
-These questions do not block the concept package. They block unsupported claims about a finished product or a production release.
+These questions are retained from concept planning. Version 0.2.0 is an early release, not a claim that every target feature is finished. Current product pages and verification record define what is implemented and tested.

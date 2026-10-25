@@ -1,11 +1,13 @@
 {
-  "name": "portfolio-concept",
-  "version": "0.1.0",
+  "name": "portfolio",
+  "version": "0.2.0",
   "private": true,
-  "description": "Product blueprint and browser preview for Portfolio in WordPress and standalone forms.",
+  "description": "Downloadable WordPress, cPanel HTML, and hosted embed portfolio packages.",
   "license": "MIT",
   "engines": { "node": ">=22" },
   "scripts": {
-    "test": "node scripts/validate.mjs && node --test scripts/validate.test.mjs && node --check prototype/app.js && node --check prototype/data.js"
+    "test": "node scripts/validate.mjs && node --test scripts/validate.test.mjs tests/packages.test.mjs && node scripts/check-js.mjs",
+    "build": "node scripts/build-release.mjs",
+    "test:browser": "node tests/browser-smoke.cjs"
   }
 }
