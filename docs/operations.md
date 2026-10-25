@@ -6,6 +6,8 @@ Run `npm test` on Node.js 22+. Open `prototype/index.html` in a browser for the 
 
 The preview performs no network requests and has no editing/persistence backend. Repository checks do not prove WordPress installability, hosting support, accessibility conformance, or production security.
 
+The [main README](../README.md) is the visitor-facing download guide. Its ZIP link downloads the current repository/preview; it is not a plugin release asset. Keep developer setup in the [documentation index](index.md). Versioned product packages should use GitHub Releases once they actually exist, with a clear product name/version, requirements, installation steps, and release notes. Keep any [email signup](business/downloads-and-signup.md) optional and independent of download availability.
+
 ## Future release channels
 
 | Artifact | Expected channel | Release requirements |

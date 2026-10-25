@@ -20,6 +20,11 @@ The source audit is maintained separately. No private archive, source tree, acco
 | [GNU GPL version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | Actual license terms; the package notice must specify “or later.” |
 | [SPDX GPL-2.0-or-later text](https://github.com/spdx/license-list-data/blob/main/text/GPL-2.0-or-later.txt) | The full included license reference text. |
 | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12) | The declared schema dialect; custom repository checks implement only the documented subset. |
+| [MIT license text at OSI](https://opensource.org/license/mit) | Permissions and notice conditions for the current public files. |
+| [GitHub release documentation](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) | Versioned packages, attached assets, notes, and release download counts. |
+| [EDPB small-business FAQ](https://www.edpb.europa.eu/sme/find-practical-info/faq_en?page=1) | Freely given, informed, specific consent and information at collection. |
+| [German UWG §7](https://www.gesetze-im-internet.de/uwg_2004/__7.html) | Prior consent for marketing email and the narrow existing-customer exception. |
+| [Saxon data-protection authority on advertising](https://www.datenschutz.sachsen.de/werbung-5904.html) | Consent evidence and safeguards such as confirmation by email. |
 
 ## Unverified items
 

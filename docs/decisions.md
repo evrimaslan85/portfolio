@@ -9,6 +9,7 @@
 | Work/case studies only | Gives the first product a focused purpose and avoids inheriting the Lab integrations. | A validated extension has its own security/maintenance scope. |
 | MIT for current original artifacts/independent standalone; GPL-2.0-or-later for the planned WP runtime | Clear reuse with WordPress-compatible distribution. | A rights/dependency review establishes a different requirement. |
 | No default telemetry or required service account | Basic publishing can run locally on the user's chosen system. | An explicitly opted-in service provides real value. |
+| Free direct downloads with a separate optional update list | Keeps the product public while allowing people to ask for release news and tips. | A specific service is proposed; marketing consent remains separate. |
 | No archived production code or client content in this public concept | Keeps product design independent of private assets and unverified redistribution rights. | A specifically reviewed source import is proposed. |
 | File-based standalone authoring first | A useful publisher is smaller than building an editor and hosted platform together. | Tests show editing files prevents adoption. |
 
@@ -22,5 +23,6 @@
 - Whether the simple architecture model meets user needs without a diagram editor.
 - Which customer segment should be the first pilot group.
 - Which support/setup offer, if any, has demonstrated paid demand.
+- Which private list/backend, sender identity, and privacy notice will support an optional confirmed email signup; no service is connected yet.
 
 These questions do not block the concept package. They block unsupported claims about a finished product or a production release.

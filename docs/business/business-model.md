@@ -21,6 +21,10 @@ Do not publish invented price tiers as if they are an offer. Interview prospecti
 
 An initial commercial experiment could be a clearly scoped setup service rather than a subscription platform. It tests willingness to pay while revealing repeated usability issues. Service scope, actual price, delivery date, refunds, and support obligations are separate owner decisions.
 
+## Optional community growth
+
+Keep the basic download public and offer a separate update list for people who want release news and practical tips. The list is a relationship with people who choose it, not a registry of everyone using the software. Do not add downloaders, GitHub users, WordPress administrators, or their website visitors automatically. Use confirmed signup, clear purpose, and unsubscribe; see the [download and signup plan](downloads-and-signup.md). No email collection is connected today.
+
 ## Evidence to collect
 
 1. Ask five to eight consultants/agency owners to bring one approved case study and explain how they publish today. This is a proposed research sample, not completed research.

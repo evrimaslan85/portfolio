@@ -1,62 +1,57 @@
 # Portfolio
 
-### Show the work. Explain the system. Prove the outcome.
+**Show what you built, how it works, and why it matters.**
 
-Portfolio is a product concept for turning completed work into useful, structured case studies. It is designed for consultants, agencies, developers, and people whose work needs more explanation than a screenshot.
+Portfolio helps consultants, agencies, and developers turn their work into clear case studies, with project galleries, screenshots, implementation details, and results.
 
-One project can describe the problem, the system, the things built, the evidence, and the results. The same content can be published in two forms:
+**[Download the free preview — ZIP](https://github.com/evrimaslan85/portfolio/archive/refs/heads/main.zip)** · [See the preview](docs/images/portfolio-preview.png) · [Read the product plan](docs/concept.md)
 
-| Form | Best for | Publishing experience |
+**Available today: a working browser preview and the product plans. The installable WordPress plugin and standalone publishing tool are planned; there is no plugin ZIP yet.**
+
+![Portfolio preview showing project cards and the story behind each project](docs/images/portfolio-preview.png)
+
+## Try the preview
+
+1. **[Download the ZIP](https://github.com/evrimaslan85/portfolio/archive/refs/heads/main.zip)** and unzip it.
+2. Open the `prototype` folder inside the downloaded folder.
+3. Double-click `index.html` to open it in your browser.
+
+Switch between **WordPress** and **Standalone** at the top. Try the filters, open a case study, expand its details, or print it.
+
+No account, email address, installation, or coding is needed. The ZIP includes the preview, fictional examples, and planning documents. It is **not** a plugin to upload to WordPress.
+
+## Two ways to use Portfolio
+
+| Planned version | Who it is for | What you will do |
 | --- | --- | --- |
-| **Portfolio for WordPress** | People with an existing WordPress website | Install a plugin, add projects in WordPress, publish a Work section or insert a project grid into a page. |
-| **Portfolio Standalone** | People who want a portfolio without WordPress | Maintain a portable content file and produce an independent static portfolio site. A visual local editor can follow later. |
+| **WordPress plugin** | You already have a WordPress website. | Install the plugin, add projects in your dashboard, and publish your Work section. |
+| **Standalone website** | You want a portfolio without WordPress. | Create your project stories and publish an independent portfolio website. |
 
-Both forms follow the same [content contract](docs/architecture/content-model.md). They have separate runtimes and one portable project format.
+Both versions will use the same project format so your content can move with you. The preview demonstrates their appearance; the publishing products are planned. [See the development roadmap](docs/roadmap.md).
 
-![Portfolio concept preview with project cards and a case-study structure](docs/images/portfolio-preview.png)
+## Is it free?
 
-## What exists today
+Yes. The preview and source are public and free to download. The planned basic products will also be free. Optional setup help, support, or additional services may be offered separately.
 
-This repository contains the product specification, licensing policy, content schema, original fictional examples, and a working browser concept preview. It does **not** yet contain an installable WordPress plugin, a static-site generator, or a hosted service.
+Downloads and basic use will not require a newsletter subscription. If we offer email updates, joining will be your choice.
 
-Open [prototype/index.html](prototype/index.html) locally in a browser to try the preview. It shows the same fictional portfolio as a WordPress-style Work section and a standalone site, with filters, case-study detail, implementation cards, architecture, and print styling. The format switch changes the presentation; it does not install or run either product. No account, network service, tracking, or build step is required.
+## How do I hear about updates?
 
-## Start here
+For now, you can use GitHub's **Watch → Custom → Releases** setting to follow future releases. That uses your GitHub notification preferences and does not add you to our email list.
 
-- [Product concept and positioning](docs/concept.md)
-- [WordPress plugin specification](docs/products/wordpress.md)
-- [Standalone publisher specification](docs/products/standalone.md)
-- [Other possible forms and why they come later](docs/products/extensions.md)
-- [User experience and design direction](docs/experience.md)
-- [MVP scope and delivery roadmap](docs/roadmap.md)
+An optional email signup is planned, but **there is no connected signup form and this preview collects no email addresses**. [Read the download and signup plan](docs/business/downloads-and-signup.md).
 
-## Design and delivery
+## What does the license mean?
 
-- [Shared content model](docs/architecture/content-model.md) and [JSON Schema](schemas/portfolio.schema.json)
-- [Architecture and publication boundaries](docs/architecture/system.md)
-- [Migration from the original Work implementation](docs/migration.md)
-- [Security and privacy](SECURITY.md)
-- [Release, distribution, and maintenance](docs/operations.md)
-- [Checks performed and their limits](docs/verification.md)
-- [Decisions and open questions](docs/decisions.md)
+It tells you what you are allowed to do with the files. The current preview and documents use the **MIT license**: you can use, change, share, and sell copies while keeping the required copyright/license notice. Your own case-study content stays yours.
 
-## Business and licensing
+The planned WordPress plugin will use WordPress-compatible **GPL-2.0-or-later** licensing. [Licensing explained in plain language](docs/business/licensing.md).
 
-- [Licensing: code, content, commercial use, and trademarks](docs/business/licensing.md)
-- [Commercial options and validation plan](docs/business/business-model.md)
-- [Research sources and claim boundaries](docs/research/sources.md)
-- [Contributing](CONTRIBUTING.md) and [third-party notices](NOTICE.md)
+## Want the details?
 
-The current original documentation, schema, scripts, and preview are **MIT licensed**. The planned WordPress plugin runtime will use **GPL-2.0-or-later**. The independently implemented standalone publisher is planned under **MIT**. This repository does not relicense or publish the original site's code or client content. See the [license scope](docs/business/licensing.md).
+- [Product plans, design, and developer documentation](docs/index.md)
+- [How downloads, optional signup, and releases will work](docs/business/downloads-and-signup.md)
+- [Ask a question or suggest an improvement](https://github.com/evrimaslan85/portfolio/issues)
+- [Contribute](CONTRIBUTING.md)
 
-## Validate this concept package
-
-Node.js 22 or later is required for the repository checks; the browser preview itself has no Node dependency.
-
-```sh
-npm test
-```
-
-Checks cover document links, example/schema conformance, publication-safe asset paths, cross-references, prototype data parity, and JavaScript syntax. Product runtime checks will be added when those implementations exist.
-
-Working title: **Portfolio**. Product names, WordPress.org slug availability, and trademark clearance have not been established. Current stage: **concept and prototype, 2026-10-25**.
+**Current stage: concept and browser preview.** All sample projects and results are fictional. No production WordPress plugin or website publisher has been released yet.

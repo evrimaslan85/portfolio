@@ -2,6 +2,18 @@
 
 Policy date: 2026-10-25. This is the project's practical licensing plan, not an opinion about any particular client's contract or a guarantee of directory acceptance.
 
+## In plain language
+
+A license is the permission attached to the files. It is separate from a price, a newsletter signup, a support subscription, and an activation key.
+
+The files published here today use MIT. Other people may use them, change them, share them, and sell copies, including in commercial products, while retaining the required notice. You keep your rights in your original work; MIT gives other people permissions too. [MIT license text](https://opensource.org/license/mit).
+
+The planned WordPress plugin will use GPL-2.0-or-later. It also permits use, modification, and redistribution; redistribution of covered software carries GPL notice/source obligations. It is not a mechanism for collecting email addresses or preventing forks. Paid support and update services are separate from those software permissions.
+
+You control this repository, the official downloads you publish, the product identity, the services you offer, and a privately maintained opted-in mailing list. Other people can maintain their own versions within the license terms. Changing a future licensing plan does not automatically remove permissions already granted for earlier copies.
+
+For the current public/free direction, keep downloads open and invite people to subscribe voluntarily. See [downloads and signup](downloads-and-signup.md). No change to the published MIT license is made by adding that invitation.
+
 ## Current files and planned packages
 
 | Material | License / treatment | Why |
