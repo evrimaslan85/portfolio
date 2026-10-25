@@ -18,6 +18,8 @@ Download portfolio-cpanel-0.2.0.zip. Unzip locally, open editor.html, edit, prev
 
 Upload all website files into a new folder such as public_html/portfolio; do not overwrite an existing site. Alternatively upload the ZIP into that new folder and extract using cPanel File Manager. Keep index.html, content.js, assets/, and media/ together. Upload approved images to media/ and reference their relative paths. Read the included INSTALL.md.
 
+If you extract the original download ZIP on the server, upload your **edited content.js afterward** to replace its fictional sample data. The original ZIP does not change when you edit the local folder. Uploading the edited local files directly also works.
+
 No PHP, database, package installation, or terminal is required. The editor downloads files to your computer; it does not update hosted files automatically. Everything uploaded is public, including the editor and content file. Neither contains a server password or server-write capability.
 
 ## Webflow, Wix, Squarespace, HTML

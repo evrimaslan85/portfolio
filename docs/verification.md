@@ -2,6 +2,12 @@
 
 Scope: early release 0.2.0, actual packages, fictional fixtures, release gates. Not comprehensive certification.
 
+## Published release evidence
+
+The [0.2.0 release](https://github.com/evrimaslan85/portfolio/releases/tag/v0.2.0) was published from [159bcb6](https://github.com/evrimaslan85/portfolio/commit/159bcb6de63e6ed7657806adac61b441b13757ab). The [full release run](https://github.com/evrimaslan85/portfolio/actions/runs/40197420745) and [source validation run](https://github.com/evrimaslan85/portfolio/actions/runs/40197420650) both completed successfully on 2026-10-25, including PHP lint, browser checks, exact-ZIP WordPress install, permission/publication tests, and HTTP gallery rendering.
+
+All six public release ZIP URLs were downloaded after publication. SHA-256 hashes and sizes matched the published manifest/checksum file, every archive passed unzip integrity checks, and all extracted entry names and uncompressed bytes matched the release builder's expected source contents. The release contains six ZIPs plus manifest.json and SHA256SUMS.txt. Compressed bytes may differ between build environments/zlib versions; reproducibility tests compare repeated builds within one environment, not across operating systems.
+
 ## Local repository/package checks
 
 npm test on Node.js 22.22.0 passes ten tests plus local link, contract, credential-pattern, and JavaScript syntax checks. Covers supported schema keywords, unknown/private fields, IDs/slugs, evidence/technology/graph references, unsafe URL/path inputs, image alt text, canonical wrapper parity, ZIP layouts/notices, repeat builds, hashes, safe entries, and unzip integrity.
